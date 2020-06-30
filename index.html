@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Email Validation</title>
+    <link href="style.css" rel="stylesheet">
+    <script>
+  function validate_form()  
+  {  
+    var e=document.myform.email.value;
+    console.log(e);
+    var p = document.myform.password.value;
+    console.log(p);
+    var atposition=e.indexOf("@");  
+    var dotposition=e.lastIndexOf(".");  
+    if (atposition<1 || dotposition<atposition+2 || dotposition+2>=e.length){  
+      alert("Please enter a valid e-mail address ");  
+      }
+    if(p.length < 8)
+     {
+          alert("Your password must be at least 8 characters"); 
+     }
+    if (p.search(/[a-z]/i) < 0) {
+          alert("Your password must contain at least one letter.");
+        }
+    if (p.search(/[0-9]/) < 0) {
+          alert("Your password must contain at least one digit."); 
+        }
+    else
+    {
+      alert("registered successfully");
+    }
+  }  
+    </script>
+  </head>
+  
+  <body>
+    <div class="board">
+      <div class="main">
+        <form name="myform"  method="post" onsubmit="validate_form();">  
+          <label>Enter e-mail:</label>
+          <input type="text" name="email" placeholder="e-mail">
+          <label>Enter Passsword:</label>
+          <input type="password" name="password" placeholder="Password">
+          <input type="submit" value="submit">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
